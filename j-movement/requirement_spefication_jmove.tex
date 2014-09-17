@@ -1,0 +1,56 @@
+\documentclass[DIV=calc, paper=a4, fontsize=11pt]{scrartcl} % Документ принадлежит классу article, а также будет печататься в 12 пунктов.
+\usepackage{ucs}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8x]{inputenc} % Включаем поддержку UTF8
+\usepackage[russian]{babel} % Пакет поддержки русского языка
+\usepackage{titling} % Allows custom title configuration
+
+%For image using
+\usepackage{graphicx}
+
+%For referencing within enumeration lists
+\usepackage{enumitem}
+
+%Packages for word-like comment style
+\usepackage{todonotes}
+
+%Package for images
+\usepackage{float}
+\floatstyle{boxed}
+\restylefloat{figure}
+
+%For a nicer reference
+\usepackage{fancyref}
+
+\usepackage{titlesec}
+
+
+\titleformat*{\section}{\LARGE\bfseries}
+\titleformat*{\subsection}{\Large\bfseries}
+\titleformat*{\subsubsection}{\large\bfseries}
+\titleformat*{\paragraph}{\large\bfseries}
+\titleformat*{\subparagraph}{\large\bfseries}
+
+%For some math formulas if needed
+\usepackage{mathtools}
+
+% Some nice visualization
+%\usepackage[svgnames]{xcolor} % Enabling colors by their 'svgnames'
+\usepackage{fullpage}
+%\renewcommand{\headrulewidth}{0.0pt} % No header rule
+%\renewcommand{\footrulewidth}{0.4pt} % Thin footer rule
+% End visualization
+
+%smart enumeration
+\renewcommand{\labelenumi}{\arabic{enumi}.}
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}}
+
+
+\title{Макет технического задания для EUROSTARS}
+\date{17/09/2014}
+
+\begin{document}
+
+\maketitle
+
+\end{document}
