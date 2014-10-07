@@ -1,0 +1,107 @@
+\documentclass[DIV=calc, paper=a4, fontsize=11pt]{scrartcl} % Документ принадлежит классу article, а также будет печататься в 12 пунктов.
+\usepackage{ucs}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8x]{inputenc} % Включаем поддержку UTF8
+\usepackage[russian]{babel} % Пакет поддержки русского языка
+\usepackage{titling} % Allows custom title configuration
+
+%for frames
+\usepackage{framed}
+
+%For image using
+\usepackage{graphicx}
+
+%Numbering subsubsubsections etc
+\setcounter{secnumdepth}{5}
+
+
+%Further enumeration
+\usepackage{enumitem}
+\setenumerate[1]{label=\thesubsection.\arabic*.}
+\setenumerate[2]{label*=\arabic*.}
+
+
+%For referencing within enumeration lists
+\usepackage{enumitem}
+
+%Packages for word-like comment style
+\usepackage{todonotes}
+
+%Package for images
+\usepackage{float}
+\floatstyle{boxed}
+\restylefloat{figure}
+
+%For a nicer reference
+\usepackage{fancyref}
+
+\usepackage{titlesec}
+
+
+\titleformat*{\section}{\LARGE\bfseries}
+\titleformat*{\subsection}{\Large\bfseries}
+\titleformat*{\subsubsection}{\large\bfseries}
+\titleformat*{\paragraph}{\large\bfseries}
+\titleformat*{\subparagraph}{\large\bfseries}
+
+%For some math formulas if needed
+\usepackage{mathtools}
+
+% Some nice visualization
+%\usepackage[svgnames]{xcolor} % Enabling colors by their 'svgnames'
+\usepackage{fullpage}
+%\renewcommand{\headrulewidth}{0.0pt} % No header rule
+%\renewcommand{\footrulewidth}{0.4pt} % Thin footer rule
+% End visualization
+
+%smart enumeration
+\renewcommand{\labelenumi}{\arabic{enumi}.}
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}}
+
+
+\title{Макет технического задания для салонов красоты (рабочее название - Beauty Booking или BB)}
+\date{07/10/2014}
+
+\begin{document}
+
+\maketitle
+
+\section{Описание проекта}
+Сайт представляет собой платформу, на которой клиенты могут искать бьюти-услуги, а салоны и фрилансеры предлагать такие услуги. Сайт состоит из двух компонент - компонент для клиента представляет собой удобный поиск и бронирование похода к мастеру. Для мастера (салон или фрилансер) сайт представляет собой полноценный административный рабочий инструмент. Мастер может принимать заявки в режиме онлайн, вести учетную запись клиентов, получать заказы с сайта (с компонента для клиентов), продвигать свои услуги.
+\subsection{Описание компонента для клиента}
+\subsection{Описание компонента для мастера}
+\subsection{Пользователи}
+\subsection{Локация}
+
+
+\section{Технические уточнения}
+
+\subsection{Термины}
+    \begin{enumerate}
+        \item Блок - некий визуальный элемент, выделяющийся либо графически (в виде рамок, очертаний), либо по смыслу (совокупность похожих элементов)
+        \item Компонент - часть содержания, имеющего закрытое визуально представление. Одна страница сайта может состоять из нескольких компонентов.
+        \item Фронтэнд - для пользователя видимая оболочка веб-страницы
+        \item Бэкэнд - невидимые для пользователя математические алгоритмы
+        \item CMS - все работы происходят на основе системы управления содержанием - CMS 1C Bitrix (1С Битрикс)
+        \item Модуль - является описанием общего функционала, который не может быть классифицирован как привязанный к определенной странице. Он может встречаться на любой странице в любом месте. Модуль может состоять из нескольких компонентов. Также модуль может содержать в себе части логики фронтэнда и бэкэнда.
+        \item Хэдер - верхняя часть сайта, обладающая определенной структурой, которая видна сквозняком на всех или почти всех страницах сайта. Также используется обозначение "шапка".
+        \item Футер - нижняя часть сайта. Функционал аналогичен хэдеру. Также используется обозначение "подвал".
+    \end{enumerate}
+
+
+\subsection{Технические требования к сайту}
+Сайт должен быть адаптивным, поддерживать IE 8+ и использовать технологию композита.
+Тут ещэ больше технического бла-бла.
+
+\section{Модули}
+
+
+
+\section{Страницы}
+
+
+\section{Примеры использования}
+
+
+
+\end{document}
