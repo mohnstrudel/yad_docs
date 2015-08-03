@@ -1,0 +1,129 @@
+\documentclass[DIV=calc, paper=a4, fontsize=11pt]{scrartcl} % Документ принадлежит классу article, а также будет печататься в 12 пунктов.
+\usepackage{ucs}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8x]{inputenc} % Включаем поддержку UTF8
+\usepackage[russian]{babel} % Пакет поддержки русского языка
+\usepackage{titling} % Allows custom title configuration
+
+%for frames
+\usepackage{framed}
+
+%For image using
+\usepackage{graphicx}
+
+%Numbering subsubsubsections etc
+\setcounter{secnumdepth}{5}
+
+%For code highlightning
+\usepackage{listings}
+
+%Further enumeration
+\usepackage{enumitem}
+\setenumerate[1]{label=\theparagraph.\arabic*.}
+\setenumerate[2]{label*=\arabic*.}
+\setenumerate[3]{label*=\arabic*.}
+
+
+%For referencing within enumeration lists
+\usepackage{enumitem}
+
+%Packages for word-like comment style
+\usepackage{todonotes}
+
+%Package for images
+\usepackage{float}
+\floatstyle{boxed}
+\restylefloat{figure}
+
+%For a nicer reference
+\usepackage{fancyref}
+
+\usepackage{titlesec}
+
+
+\titleformat*{\section}{\LARGE\bfseries}
+\titleformat*{\subsection}{\Large\bfseries}
+\titleformat*{\subsubsection}{\large\bfseries}
+\titleformat*{\paragraph}{\large\bfseries}
+\titleformat*{\subparagraph}{\large\bfseries}
+
+%For some math formulas if needed
+\usepackage{mathtools}
+
+% Some nice visualization
+%\usepackage[svgnames]{xcolor} % Enabling colors by their 'svgnames'
+\usepackage{fullpage}
+%\renewcommand{\headrulewidth}{0.0pt} % No header rule
+%\renewcommand{\footrulewidth}{0.4pt} % Thin footer rule
+% End visualization
+
+%smart enumeration
+\renewcommand{\labelenumi}{\arabic{enumi}.}
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}}
+
+
+\title{Техническое задания для сайта мебели (рабочее название - Furniture Project или FP)}
+\date{03/08/2015}
+
+\begin{document}
+
+\maketitle
+
+\section{Описание проекта}
+
+Сайт представляет собой стандартный тип - business presentation. На усмотрение исполнителя это может быть одностраничник (в формате лендинга) или сайт с несколькими разделами (отдельными страницами)
+На сайте клиент размещает информацию о своих проектах, описание данных проектов, а также описание своей компании.
+
+\subsection{Общие требования к проекту}
+Дизайн и верстка должны быть выполнены адаптивно.
+
+\section{Страницы}
+
+Тематически на сайте должны быть представлены ниже описанные разделы. Оформление (лендинг или мультистраничник) может быть вариабельным.
+
+\subsection{Главная}
+
+Главная представляет собой список проектов. Также должны присутствовать стандартные элементы, как то - шапка, футер. Приветствуются идеи анимации.
+\\[0.5cm]
+Список проектов имеет форму плиток (или иной userfriendly вид). Каждая плитка кликабельна и ведет на страницу конкретного проекта.
+
+\subsection{Страница проекта}
+Содержит в себе:
+\begin{itemize}
+	\item Рубрику
+	\item Тематику
+	\item Название проекта
+	\item Фотографии проекта (открываются в превью)
+	\item Описание проекта
+	\item Участники проекта (с ссылкой на участника)
+\end{itemize}
+
+\subsection{Контакты}
+
+Стандартная страница контактов. Содержит в себе:
+
+\begin{itemize}
+	\item Адрес
+	\item Телефон
+	\item Карта
+	\item Форма обратной связи
+\end{itemize}
+
+\subsection{Перечень услуги}
+Данная страница содержит перечень услуг. Перечень может быть в плиточном формате или в табличном. При mouseover'е должен меняться фон и всплывать описание с возможностью нажать на описание и попасть на детальную страницу услуги.
+
+\subsection{Страница услуги}
+Данная страница содержит в себе:
+\begin{itemize}
+	\item Название услуги
+	\item Фотографию услуги (одну или несколько - можно сделать одну большую область, где показываем фотку в полный размер, а под ней идет слайдер со всеми фотографиями услуги)
+	\item Описание услуги
+\end{itemize}
+
+\subsection{О нас}
+Данная страница содержит в себе описание компании (текст) и перечень сотрудников с фотографиями (как идея - круглые тамбнейлы). Два варианта - при нажатии на фото сотрудника открывается отдельная страница или просто выезжает блок с небольшим кол-вом информации (в последнем случае на странице проектов нужно сделать так же, а не вести на страницу сотрудника)
+
+
+
+
+\end{document}
