@@ -1,0 +1,140 @@
+\documentclass[DIV=calc, paper=a4, fontsize=11pt]{scrartcl} % Документ принадлежит классу article, а также будет печататься в 12 пунктов.
+\usepackage{ucs}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8x]{inputenc} % Включаем поддержку UTF8
+\usepackage[russian]{babel} % Пакет поддержки русского языка
+\usepackage{titling} % Allows custom title configuration
+
+%for frames
+\usepackage{framed}
+
+%For image using
+\usepackage{graphicx}
+
+%Numbering subsubsubsections etc
+\setcounter{secnumdepth}{5}
+
+%For code highlightning
+\usepackage{listings}
+
+%Further enumeration
+\usepackage{enumitem}
+\setenumerate[1]{label=\theparagraph.\arabic*.}
+\setenumerate[2]{label*=\arabic*.}
+\setenumerate[3]{label*=\arabic*.}
+
+
+%For referencing within enumeration lists
+\usepackage{enumitem}
+
+%Packages for word-like comment style
+\usepackage{todonotes}
+
+%Package for images
+\usepackage{float}
+\floatstyle{boxed}
+\restylefloat{figure}
+
+%For a nicer reference
+\usepackage{fancyref}
+
+\usepackage{titlesec}
+
+
+\titleformat*{\section}{\LARGE\bfseries}
+\titleformat*{\subsection}{\Large\bfseries}
+\titleformat*{\subsubsection}{\large\bfseries}
+\titleformat*{\paragraph}{\large\bfseries}
+\titleformat*{\subparagraph}{\large\bfseries}
+
+%For some math formulas if needed
+\usepackage{mathtools}
+
+% Some nice visualization
+%\usepackage[svgnames]{xcolor} % Enabling colors by their 'svgnames'
+\usepackage{fullpage}
+%\renewcommand{\headrulewidth}{0.0pt} % No header rule
+%\renewcommand{\footrulewidth}{0.4pt} % Thin footer rule
+% End visualization
+
+%smart enumeration
+\renewcommand{\labelenumi}{\arabic{enumi}.}
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}}
+
+
+% General document settings
+% % %
+% Accepted file upload formats
+\newcommand{\AcceptedFormats}{.txt, .csv, .xls, .xlsx}
+
+\title{Система лояльности клиентов}
+\date{12/10/2015}
+
+\begin{document}
+
+\maketitle
+
+\section{Описание проекта}
+
+Данный проект (рабочее название mondi) представляет собой программное обеспечение - SaaS (Software as a Service), размещенное на сервере/серверах клиента и позволяющее собирать данные об оборудовании, которым обеспечивает заказчик своих клиентов. Данные оборудования хранятся в двух различных базах данных (Oracle, MSSql) и представляют собой складские данные и данные сервисного центра.
+\\[0.5cm]
+Суть системы состоит в обработке этих данных и предоставления сотрудникам заказчика, а также сотрудникам клиентов заказчика отчетов на основе собранных данных. Отчеты должны генерироваться как в онлайн (в окне браузера), так и быть доступными для скачивания.
+
+\subsection{Описание для клиента-банка}
+Пользователь (сотрудник) банка, который является клиентом заказчика, может просматривать все данные системы, но ограничен диапазоном только своего банка и правами доступа внутри своего банка. Так, региональный представитель видит все филиалы региона (но не видит другие регионы), а главный директор видит все регионы.
+
+\subsection{Описание для заказчика}
+Пользователь (сотрудник) фирмы заказчика видит все товары и все банки и может строить отчеты по всем данным.
+
+\subsection{Прототип}
+Прототип проекта доступен по ссылке http://yadadya.com/showcase/trackmate/prototype/
+
+\section{Технические уточнения}
+
+\subsection{Терминология}
+        
+        \begin{itemize}
+        \item Блок - некий визуальный элемент, выделяющийся либо графически (в виде рамок, очертаний), либо по смыслу (совокупность похожих элементов)
+        \item Компонент - часть содержания, имеющего закрытое визуально представление. Одна страница сайта может состоять из нескольких компонентов.
+        \item Фронтэнд - для пользователя видимая оболочка веб-страницы
+        \item Бэкэнд - невидимые для пользователя математические алгоритмы
+        \item CMS - все работы происходят на основе системы управления содержанием - CMS 1C Bitrix (1С Битрикс)
+        \item Модуль - является описанием общего функционала, который не может быть классифицирован как привязанный к определенной странице. Он может встречаться на любой странице в любом месте. Модуль может состоять из нескольких компонентов. Также модуль может содержать в себе части логики фронтэнда и бэкэнда.
+        \item Хэдер - верхняя часть сайта, обладающая определенной структурой, которая видна сквозняком на всех или почти всех страницах сайта. Также используется обозначение "шапка".
+        \item Футер - нижняя часть сайта. Функционал аналогичен хэдеру. Также используется обозначение "подвал".
+    \end{itemize}
+    
+\subsection{Технические требования}
+Для работоспобности системы Trackmate её необходимо установить на unix-машине с настроенным apache2 или nginx сервером.
+Для удобства администрирования также рекомендуется использовать phpMyAdmin.
+\\[0.5cm]
+Минимальная конфигурация сервера:
+\begin{itemize}
+	\item 512 мегабайт оперативной памяти
+	\item 1-ядерный процессор
+	\item 1500 мегагерц тактовой частоты
+	\item 15000 килобайт процессорного кеша
+\end{itemize}
+
+
+\section{Модули}
+
+\subsection{Товары}
+
+
+
+\section{Страницы}
+
+\subsection{Главная}
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
