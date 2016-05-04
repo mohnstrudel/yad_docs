@@ -1,0 +1,321 @@
+\documentclass[DIV=calc, paper=a4, fontsize=11pt]{scrartcl} % Документ принадлежит классу article, а также будет печататься в 12 пунктов.
+\usepackage{ucs}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8x]{inputenc} % Включаем поддержку UTF8
+\usepackage[russian]{babel} % Пакет поддержки русского языка
+\usepackage{titling} % Allows custom title configuration
+
+%for frames
+\usepackage{framed}
+
+%For image using
+\usepackage{graphicx}
+
+%Numbering subsubsubsections etc
+\setcounter{secnumdepth}{5}
+
+%For code highlightning
+\usepackage{listings}
+
+%for nice ruby highlight
+\lstloadlanguages{Ruby}
+\lstset{%
+basicstyle=\ttfamily\color{black},
+commentstyle = \ttfamily\color{red},
+keywordstyle=\ttfamily\color{blue},
+stringstyle=\color{orange}}
+
+%Further enumeration
+\usepackage{enumitem}
+\setenumerate[1]{label=\theparagraph.\arabic*.}
+\setenumerate[2]{label*=\arabic*.}
+\setenumerate[3]{label*=\arabic*.}
+
+
+%For referencing within enumeration lists
+\usepackage{enumitem}
+
+%Packages for word-like comment style
+\usepackage{todonotes}
+
+%Package for images
+\usepackage{float}
+\floatstyle{boxed}
+\restylefloat{figure}
+
+%For a nicer reference
+\usepackage{fancyref}
+
+\usepackage{titlesec}
+
+\usepackage{xcolor}
+
+% For nice JSON output 
+\colorlet{punct}{red!60!black}
+\definecolor{background}{HTML}{EEEEEE}
+\definecolor{delim}{RGB}{20,105,176}
+\colorlet{numb}{magenta!60!black}
+
+\lstdefinelanguage{json}{
+    basicstyle=\normalfont\ttfamily,
+    numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    backgroundcolor=\color{background},
+    literate=
+     *{0}{{{\color{numb}0}}}{1}
+      {1}{{{\color{numb}1}}}{1}
+      {2}{{{\color{numb}2}}}{1}
+      {3}{{{\color{numb}3}}}{1}
+      {4}{{{\color{numb}4}}}{1}
+      {5}{{{\color{numb}5}}}{1}
+      {6}{{{\color{numb}6}}}{1}
+      {7}{{{\color{numb}7}}}{1}
+      {8}{{{\color{numb}8}}}{1}
+      {9}{{{\color{numb}9}}}{1}
+      {:}{{{\color{punct}{:}}}}{1}
+      {,}{{{\color{punct}{,}}}}{1}
+      {\{}{{{\color{delim}{\{}}}}{1}
+      {\}}{{{\color{delim}{\}}}}}{1}
+      {[}{{{\color{delim}{[}}}}{1}
+      {]}{{{\color{delim}{]}}}}{1},
+}
+
+
+\titleformat*{\section}{\LARGE\bfseries}
+\titleformat*{\subsection}{\Large\bfseries}
+\titleformat*{\subsubsection}{\large\bfseries}
+\titleformat*{\paragraph}{\large\bfseries}
+\titleformat*{\subparagraph}{\large\bfseries}
+
+%For some math formulas if needed
+\usepackage{mathtools}
+
+% Some nice visualization
+%\usepackage[svgnames]{xcolor} % Enabling colors by their 'svgnames'
+\usepackage{fullpage}
+%\renewcommand{\headrulewidth}{0.0pt} % No header rule
+%\renewcommand{\footrulewidth}{0.4pt} % Thin footer rule
+% End visualization
+
+%smart enumeration
+\renewcommand{\labelenumi}{\arabic{enumi}.}
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}}
+
+
+% General document settings
+% % %
+% Accepted file upload formats
+\newcommand{\AcceptedFormats}{.txt, .csv, .xls, .xlsx}
+
+\title{Техническое задание на разработку интернет-магазина}
+
+\date{04/05/2016}
+
+\begin{document}
+
+\maketitle
+
+\section{Описание проекта}
+Рабочее название проекта - lingerieshop. Проект представляет собой интернет-магазин, в котором желающие клиенты могут покупать нижнее белье.
+
+
+\section{Технические уточнения}
+
+\subsection{Термины}
+
+        \begin{itemize}
+        \item Блок - некий визуальный элемент, выделяющийся либо графически (в виде рамок, очертаний), либо по смыслу (совокупность похожих элементов)
+        \item Компонент - часть содержания, имеющего закрытое визуально представление. Одна страница сайта может состоять из нескольких компонентов.
+        \item Фронтэнд - для пользователя видимая оболочка веб-страницы
+        \item Бэкэнд - невидимые для пользователя математические алгоритмы
+        \item CMS - все работы происходят на основе системы управления содержанием - CMS 1C Bitrix (1С Битрикс)
+        \item Модуль - является описанием общего функционала, который не может быть классифицирован как привязанный к определенной странице. Он может встречаться на любой странице в любом месте. Модуль может состоять из нескольких компонентов. Также модуль может содержать в себе части логики фронтэнда и бэкэнда.
+        \item Хэдер - верхняя часть сайта, обладающая определенной структурой, которая видна сквозняком на всех или почти всех страницах сайта. Также используется обозначение "шапка".
+        \item Футер - нижняя часть сайта. Функционал аналогичен хэдеру. Также используется обозначение "подвал".
+        \item Администраторская панель ("админка") - часть сайта, скрытая для обычных пользователей, позволяющая редактировать содержимое сайта
+        \item Публичная часть ("паблик") - часть сайта, доступная для просмотра обычным пользователям.
+
+    \end{itemize}
+    
+\subsection{Технические требования к сайту}
+Сайт располагается на хостинге или выделенном сервере (virtual dedicated server), в зависимости от предпочтений заказчика.
+
+
+
+\section{Архитектура проекта}
+
+\subsection{Общее}
+
+Проект изначально должен соблюдать правила объектно ориентированного программирования. Т.е. любой пользователь должен быть объектом класса "пользователь". Это распространяется на все сущности. Все действия системы должны быть методами своих классов. Псевдокод:
+\begin{lstlisting}[language=Ruby]
+
+#Class description
+
+class User < ActiveRecord::Base 
+
+def initialize(name, phone, mail)
+	@name = name
+	@phone = phone
+	@mail = mail
+end
+
+# Register method
+def register(user_params)
+	User.create(user_params)
+end
+
+# Allow only whitelisted params
+private
+	def user_params
+		params.require(:user).permit(:name, :phone, :mail)
+	end
+\end{lstlisting}
+
+Программирование должно осуществляться по подходу TDD - test driven development. Это означает, что перед написанием функционала необходимо написать тест (который заведомо провалится, так как функционала нет). Далее пишется минимальный функционал, который позволяет пройти данный тест.
+\\[0.5cm]
+Псевдокод теста:
+\begin{lstlisting}[language=Ruby]
+require 'user'
+	
+Rspec.describe User, "#register" do
+  context "when user is completely new" do
+	it "creates a new entry with valid data" do
+	  user = User.new
+      user.name = "Vasya Pupkin"
+	  user.phone = "8 903 227 88 74"
+	  user.mail = "vasya@pupkin.ru"
+	  user.register
+				
+	  expect(User.count).to change{User.count}.by(1)
+	end
+    it "does not create a new entry with invalid data" do
+      user = User.new
+	  user.name = "Vasya Pupkin"
+	  user.phone = "j1lkh3i1u2y98"
+	  user.mail = "someinvalidtext"
+	  user.register	
+		
+      expect(User.count).not_to change{User.count}.by(1)
+	end
+  end
+end
+\end{lstlisting}
+Т.е. в данном случае мы тестируем создание нового пользователя с валидными данными (первый случай) и с невалидными данными. В первом случае мы ожидаем увеличение общего кол-ва пользователей на 1, во втором случае мы не ожидаем увеличений.
+
+\subsection{Модели}
+Общее описание - есть каталог товаров, товары принадлежат разделам и категориям.
+
+\begin{itemize}
+	\item Раздел
+	\item Категория
+	\item Товар
+	\item Товарное предложение
+\end{itemize}
+
+\subsubsection{Структура моделей}
+
+Товар может принадлежать одному или нескольким разделам и категориям. У товара может быть несколько товарных предложений.
+\begin{framed}
+Пример
+\\[0.5cm]
+Есть товар "ночнушка прозрачная". Она может относиться как к категории "нижнее белье", так и к категории "спальные вещи". У данной ночнушки есть несколько товарных предложений - конкретный размер и цвет (XXXL может стоить дороже, чем XS)
+\end{framed}
+
+
+%% New Section
+\section{Модули}
+
+\subsection{Оплата}
+Необходимо встроить прием онлайн-оплаты через агрегатор "Робокасса".
+
+\subsection{Скидки}
+Необходимо иметь возможность управлять скидками для товаров. \todo[inline]{Нужна ли программа лояльности? Например накопительные скидки?}
+
+%% New Section
+\section{Страницы}
+
+\subsection{Главная}
+
+\subsection{Список товаров}
+
+\subsection{Карточка товара}
+Вывод информации в соответствии с шаблоном. На карточке товара перечислены следующие свойства товара:
+
+\begin{itemize}
+	\item Название товара
+	\item Фотографии товара - обязательно с функцией zoom
+	\item Размер одежды
+	\item Цвет одежды
+	\item Цена товара
+	\item Описание товара
+	\item Сопутствующие товары
+\end{itemize}
+
+Также в карточке товара необходимо вывести элементы социального sharing'а.
+
+\subsection{Корзина (оформление заказа)}
+В корзине пользователь может просмотреть все свои товары, которые он положил в корзину, отредактировать количество и удалить позиции. При вводе контактных данных для доставки пользователь может оформить заказ выбрав способ оплаты и доставки.
+\\[0.5cm]
+Для оформления заказа достаточно следующих полей от пользователя:
+\begin{itemize}
+	\item телефон (обязательно)
+	\item электронная почта (обязательно)
+	\item адрес (страна, город, индекс, улица, дом, квартира) - опционально, может уточнить и менеджер при повторном звонке.
+\end{itemize}
+
+Также при оформлении заказа у клиента должна быть возможность ввести промокод. ИМ должен поддерживать систему промокодов (они должны управляться в админке).
+
+\subsection{Личный кабинет пользователя}
+Дефолтно пользователь попадает на страницу с персональными данными. Если у него есть актуальный заказ, то статус данного заказа выводим сверху по центру.
+
+\subsubsection{Персональные данные}
+Перечень полей, которые пользователь может изменить. При первичном оформлении заказа (если клиента нет в базе) на почту клиенту приходит пароль, с которым он сможет авторизоваться и в будущем на сайте ИМ. Поля следующие:
+\begin{itemize}
+	\item ФИО (отдельные поля)
+	\item Адрес (отдельные поля)
+	\item Электронная почта
+	\item Телефон
+	\item Пароль
+\end{itemize}
+
+\subsubsection{История покупок}
+Подстраница с перечнем всех покупок. Табличный вид заказов, состоящий из следующих полей:
+\begin{itemize}
+	\item Дата заказа
+	\item Сумма заказа
+	\item Статус доставки
+	\item Статус оплаты
+	\item Перечень товаров (если слишком много, то делаем truncate и показываем полный перечень при наведении мышкой)
+\end{itemize}
+
+\subsubsection{Вишлист}
+Перечень товаров, которые нравятся пользователю. Необходимо давать доступ к вишлисту также незарегистрированным пользователям. Суть - что бы клиенты могли делиться своими вишлистами. \todo[inline]{Нужен ли действительно функционал?}
+
+\subsection{Типовые страницы}
+
+\begin{itemize}
+	\item Контакты - необходимо подгружать из настроек магазина
+	\item Доставка - необходимо подгружать из настроек магазина
+	\item О магазине - текстовая страница
+	\item Соглашение пользователя - текстовая страница
+	\item Конфиденциальность - текстовая страница
+	\item Новости - управляется соответствующим блоком в администраторской панели
+	\item Часто задаваемые вопросы - управляется блоком в админке
+	\item Обратная связь - контактная форма, присылает сообщение на адрес из настроек магазина
+	\item 
+\end{itemize}
+
+\end{document}
+
+
+
+
+
+
+
+
