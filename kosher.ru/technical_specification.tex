@@ -4,6 +4,7 @@
 \usepackage[utf8x]{inputenc} % Включаем поддержку UTF8
 \usepackage[russian]{babel} % Пакет поддержки русского языка
 \usepackage{titling} % Allows custom title configuration
+\usepackage[protrusion=true,expansion=true]{microtype} % Better typography
 
 %for frames
 \usepackage{framed}
@@ -112,8 +113,14 @@ stringstyle=\color{orange}}
 % Accepted file upload formats
 \newcommand{\AcceptedFormats}{.txt, .csv, .xls, .xlsx}
 
-\title{Техническое задание на смену системы}
 
+
+
+
+%----------------------------------------------------------------------------------------
+
+
+\title{Реструктуризация архитектуры системы} % Your article title
 \date{28/12/2016}
 
 \begin{document}
@@ -272,7 +279,7 @@ kosher.ru/suppliers/ooo-roga-i-kopyta/trademarks/vodochka-sineglazka/vodka-nasto
 Основным языком является русский. При нажатии на флаг английской версии пользователь перенаправляется на специальный англоязычный лендинг.
 
 \subsection{Геолокация}
-По IP-адресу необходимо определять страну пользователя и автоматически переводить его на англоязычный лендинг, если страна не Россия. 
+По IP-адресу необходимо определять страну пользователя и автоматически переводить его на англоязычный лендинг, если страна не Россия. Страны, которые входят в число англоязычных для сайта - все, кроме России и стран СНГ. 
 
 %% New Section
 \section{Модули}
